@@ -1,0 +1,5 @@
+export const angleNames={front:'Front',back:'Back',left:'Left side',right:'Right side',top:'Top',bottom:'Bottom',nutrition:'Nutrition',ingredients:'Ingredients',detail:'Detail',closeup:'Close-up'};
+export const packaging={box:{icon:'▣',name:'Box',angles:['front','back','left','right','top','bottom','nutrition','ingredients','detail']},bottle:{icon:'♙',name:'Bottle',angles:['front','back','left','right','top','bottom','nutrition','ingredients','detail']},pouch:{icon:'▤',name:'Pouch',angles:['front','back','left','right','nutrition','ingredients','detail']},tray:{icon:'▱',name:'Tray',angles:['front','back','left','right','top','bottom','nutrition','ingredients','detail']},loose:{icon:'◉',name:'Loose',angles:['front','back','left','right','top','detail']}};
+export const required=new Set(['front','back']);
+export function normalizeBarcode(raw){const input=String(raw||'').trim();if(!/^\d+$/.test(input))return null;const digits=input.replace(/^0+/,'');if(!digits)return null;return digits.length===12&&/^2[1-9]/.test(digits)?digits.slice(0,5):digits;}
+export function safeName(value){return String(value).replace(/[^a-zA-Z0-9_-]/g,'_');}
